@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+if [ "$1" == "install" ]; then
+  pip install -r requirements.txt -t lib/
+else
+  python main.py
+fi
