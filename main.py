@@ -12,11 +12,11 @@ def index():
 
 @app.route("/update/<symbol>")
 def update(symbol=None):
-    return "Updating %s" % symbol
+    return "Updating {}".format(symbol)
 
 @app.route("/statistics/<symbol>")
 def statistics(symbol):
-    url = "http://www.reuters.com/finance/stocks/financialHighlights?symbol=%s" % symbol
+    url = "http://www.reuters.com/finance/stocks/financialHighlights?symbol={}".format(symbol)
     response = requests.get(url)
     dom = PyQuery(response.text)
     info = {
@@ -28,7 +28,7 @@ def statistics(symbol):
         'current_ratio': dom('td:contains("Current Ratio")').next().text(),
         'avg_volume': dom('span:contains("Avg. Vol")').next().next().text().replace(',','')
     }
-    return "%s" % json.dumps(info)
+    return json.dumps(info)
 
 if __name__ == "__main__":
     app.run()
