@@ -1,9 +1,7 @@
 import requests, json, re
-
+from pyquery import PyQuery
 from flask import Flask
 app = Flask(__name__, static_url_path='')
-
-from pyquery import PyQuery
 
 @app.route("/")
 def index():
