@@ -1,7 +1,6 @@
-import sys, requests, json, re
-sys.path.append('lib')
+import requests, json, re
 
-from flask import Flask, request
+from flask import Flask
 app = Flask(__name__, static_url_path='')
 
 from pyquery import PyQuery
