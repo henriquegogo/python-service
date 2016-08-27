@@ -6,12 +6,11 @@
         <title>Title</title>
     </head>
     <body>
-        <h1>Menu</h1>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/statistics/FIBR3.SA" target="content">Statistics</a></li>
-            <li><a href="/update/FIBR3.SA" target="content">Update</a></li>
-        </ul>
+        <h2>Stock Balance</h2>
+        <input type='text' id='symbol' size=8 value='PETR4.SA' style='border: none'>
+        <a href="javascript:window.open('/statistics/' + symbol.value, 'content')" target="content">Key Statistics</a>
+        /
+        <a href="javascript:window.open('/update/' + symbol.value, 'content')" target="content">Update</a>
         <iframe name="content" style="width: 100%; border: none">
     </body>
     <script src="script.js" type="text/javascript"></script>
