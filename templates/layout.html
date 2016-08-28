@@ -8,10 +8,10 @@
     <body>
         <h2>Stock Balance</h2>
         <input type='text' id='symbol' size=8 value='PETR4.SA' style='border: none'>
-        <a href="javascript:window.open('/statistics/' + symbol.value, 'content')" target="content">Key Statistics</a>
+        <a href="javascript:location.href = '/statistics/' + symbol.value" target="content">Key Statistics</a>
         /
-        <a href="javascript:window.open('/update/' + symbol.value, 'content')" target="content">Update</a>
-        <iframe name="content" style="width: 100%; border: none">
+        <a href="javascript:location.href = '/update/' + symbol.value" target="content">Update</a>
+        <p>{{ body }}</p>
     </body>
     <script src="script.js" type="text/javascript"></script>
 </html>

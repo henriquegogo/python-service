@@ -1,15 +1,16 @@
 import requests, json, re
 from pyquery import PyQuery
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__, static_url_path='')
 
 @app.route("/")
 def index():
-    return app.send_static_file('index.html')
+    return render_template('layout.html')
 
 @app.route("/update/<symbol>")
-def update(symbol=None):
-    return "Updating {}".format(symbol)
+def update(symbol):
+    message = "Updating {}".format(symbol)
+    return render_template('layout.html', body=message)
 
 @app.route("/statistics/<symbol>")
 def statistics(symbol):
@@ -25,7 +26,7 @@ def statistics(symbol):
         'current_ratio': dom('td:contains("Current Ratio")').next().text(),
         'avg_volume': dom('span:contains("Avg. Vol")').next().next().text().replace(',','')
     }
-    return json.dumps(info)
+    return render_template('layout.html', body=json.dumps(info))
 
 if __name__ == "__main__":
     app.run()
